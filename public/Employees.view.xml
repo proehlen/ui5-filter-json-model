@@ -1,0 +1,40 @@
+<mvc:View
+  xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="repro.Employees">
+
+  <!-- Filter options -->
+  <CheckBox select="onFilterSelect" id="filterUK" text="UK Employees" />
+  <CheckBox select="onFilterSelect" id="filterUSA" text="American Employees" />
+  <CheckBox select="onFilterSelect" id="filterManagers" text="Managers" />
+
+  <!-- Table for showing employees -->
+  <Table id="EmployeesTable" items="{/Employees}" visible="true" fixedLayout="false">
+      <!-- Table columns -->
+      <columns>
+          <Column>
+              <Text text="Name"/>
+          </Column>
+          <Column>
+              <Text text="Title"/>
+          </Column>
+          <Column>
+              <Text text="Country"/>
+          </Column>
+          <Column>
+              <core:Icon src="sap-icon://phone"/>
+          </Column>
+      </columns>
+
+      <!-- Define what is in each row -->
+      <ColumnListItem >
+          <cells>
+              <ObjectIdentifier title="{LastName}, {FirstName}" text="{EmployeeID}"/>
+              <Text text="{Title}"/>
+              <Text text="{Country}"/>
+              <Text text="{Extension}"/>
+          </cells>
+      </ColumnListItem>
+  </Table>
+</mvc:View>
